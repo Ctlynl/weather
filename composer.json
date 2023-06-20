@@ -1,0 +1,30 @@
+{
+    "name": "ctlynl/weather",
+    "description": "高德API获取天气接口",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "make",
+            "email": "835215945@qq.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Ctlynl\\Weather\\": "src"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5",
+        "mockery/mockery": "^1.4"
+    },
+    "require": {
+        "php": ">=7.4",
+        "guzzlehttp/guzzle": "^7.3",
+        "ext-json": "*"
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Ctlynl\\Tests\\": "tests/"
+        }
+    }
+}
