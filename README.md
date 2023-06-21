@@ -2,6 +2,7 @@
 
 <p align="center"> 基于 高德开放平台 的 PHP 天气信息组件。</p>
 
+[![Tests](https://github.com/Ctlynl/weather/actions/workflows/tests.yml/badge.svg)](https://github.com/Ctlynl/weather/actions/workflows/tests.yml)
 
 ## 安装
 
