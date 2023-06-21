@@ -6,7 +6,7 @@
 ## 安装
 
 ```shell
-$ composer require ctlynl/weather -vvv
+$ composer require ctlynl/weather:v2.0 -vvv
 ```
 
 ## 配置
@@ -25,23 +25,22 @@ $weather = new Weather($key);
 ### 参数说明
 ```shell
 1、$city - 城市名，比如：“深圳”；
-2、$type - 返回内容类型：base: 返回实况天气 / all: 返回预报天气；
 3、$format - 输出的数据格式，默认为 json 格式，当 output 设置为 “xml” 时，输出的为 XML 格式的数据。
 ```
 
 #### 获取实时天气
 ```shell
-$response = $weather->getWeather('深圳', 'base');
+$response = $weather->getLiveWeather('深圳');
 ```
 
 #### 获取近期天气预报
 ```shell
-$response = $weather->getWeather('深圳', 'all');
+$response = $weather->getForecastsWeather('深圳');
 ```
 
 #### 获取 XML 格式返回值（默认json）
 ```shell
-$response = $weather->getWeather('深圳', 'all', 'xml');
+$response = $weather->getLiveWeather('深圳', 'xml');
 ```
 
 ## LICENSE MIT
