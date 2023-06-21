@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of the ctlynl/weather.
+ *
+ * (c) ctlynl <i@ctlynl.me>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 namespace Ctlynl\Weather;
 
 use GuzzleHttp\Client;
@@ -9,50 +18,41 @@ use Ctlynl\Weather\Exceptions\HttpException;
 
 /**
  * 获取天气类
- * Class Weather
- * @package Ctlynl\Weather
+ * Class Weather.
  */
 class Weather
 {
     /**
-     * key
-     * @var string
+     * key.
      */
     protected string $key;
 
     /**
-     * GuzzleHttp 配置参数
-     * @var array
+     * GuzzleHttp 配置参数.
      */
     protected array $guzzleOptions = [];
 
     /**
      * Weather constructor.
-     * @param string $key
      */
     public function __construct(string $key)
     {
         $this->key = $key;
     }
 
-    /**
-     * @return Client
-     */
     public function getHttpClient(): Client
     {
         return new Client($this->guzzleOptions);
     }
 
-    /**
-     * @param array $options
-     */
     public function setGuzzleOptions(array $options)
     {
         $this->guzzleOptions = $options;
     }
 
     /**
-     * 获取实时天气
+     * 获取实时天气.
+     *
      * @throws InvalidArgumentException
      * @throws GuzzleException
      * @throws HttpException
@@ -63,7 +63,8 @@ class Weather
     }
 
     /**
-     * 获取天气预报
+     * 获取天气预报.
+     *
      * @throws InvalidArgumentException
      * @throws GuzzleException
      * @throws HttpException
@@ -74,11 +75,10 @@ class Weather
     }
 
     /**
-     * 获取天气接口
-     * @param $city
-     * @param string $type
-     * @param string $format
+     * 获取天气接口.
+     *
      * @return mixed|string|array
+     *
      * @throws GuzzleException
      * @throws HttpException
      * @throws InvalidArgumentException
@@ -88,11 +88,11 @@ class Weather
         $url = 'https://restapi.amap.com/v3/weather/weatherInfo';
 
         if (!\in_array(\strtolower($format), ['xml', 'json'])) {
-            throw new InvalidArgumentException('Invalid response format: ' . $format);
+            throw new InvalidArgumentException('Invalid response format: '.$format);
         }
 
         if (!\in_array(\strtolower($type), ['base', 'all'])) {
-            throw new InvalidArgumentException('Invalid type value(base/all): ' . $type);
+            throw new InvalidArgumentException('Invalid type value(base/all): '.$type);
         }
 
         $query = array_filter([
